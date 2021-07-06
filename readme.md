@@ -8,3 +8,6 @@ Create a .dll file and use it via python
 
 - [Flask Celery](./flask_celery)  
 Running background tasks with celery on flask
+
+- [RabbitMQ](./rabbitmq)  
+Completed tutorials and rabbitMQ and an example on using rabbitmq queues for deep learning model
