@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  dllmain.cpp
+C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\SimpleDLL\dllmain.cpp(11,1): warning C4273: 'add': inconsistent dll linkage
+C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\SimpleDLL\dllmain.h(10,28): message : see previous definition of 'add'
+C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\SimpleDLL\dllmain.cpp(19,1): warning C4273: 'minus': inconsistent dll linkage
+C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\SimpleDLL\dllmain.h(12,28): message : see previous definition of 'minus'
+     Creating library C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\x64\Debug\SimpleDLL.lib and object C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\x64\Debug\SimpleDLL.exp
+  SimpleDLL.vcxproj -> C:\Users\ernestlwt\Documents\workspace\testbeds\python_dll\dll\SimpleDLL\x64\Debug\SimpleDLL.dll
