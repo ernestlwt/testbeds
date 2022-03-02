@@ -14,3 +14,6 @@ Completed tutorials and rabbitMQ and an example on using rabbitmq queues for dee
 
 - [Triton Python Backend](./triton_python_backend)  
 Running deep learning services on triton's python backend
+
+- [Milvus](./milvus)
+Database for embeddings
