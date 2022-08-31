@@ -17,3 +17,6 @@ Running deep learning services on triton's python backend
 
 - [Milvus](./milvus)
 Database for embeddings
+
+- [GRPC](./grpc_tutorial/)
+How to use gRPC
