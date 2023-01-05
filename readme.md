@@ -1,5 +1,5 @@
 # A collection of stuffs I fiddled with
-Just some things i have tried here and there for learning/experimentation
+Just some things i have tried here and there for learning/experimentation/knowledge bank
 
 ---
 
@@ -26,3 +26,6 @@ Exploring realsense sdk
 
 - [Stream Simulator](./stream_simulator)    
 Simulating streams in rtsp/http etc
+
+- [vid_to_frame](./vid_to_frame)    
+Extract frames from videos
