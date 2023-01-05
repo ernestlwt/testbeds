@@ -15,8 +15,14 @@ Completed tutorials and rabbitMQ and an example on using rabbitmq queues for dee
 - [Triton Python Backend](./triton_python_backend)  
 Running deep learning services on triton's python backend
 
-- [Milvus](./milvus)
+- [Milvus](./milvus)    
 Database for embeddings
 
-- [GRPC](./grpc_tutorial/)
+- [GRPC](./grpc_tutorial/)  
 How to use gRPC
+
+- [Realsense](./realsense)  
+Exploring realsense sdk
+
+- [Stream Simulator](./stream_simulator)    
+Simulating streams in rtsp/http etc
