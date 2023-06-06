@@ -4,10 +4,10 @@ GPU slower then CPU. This also seems to be the behavior at https://github.com/ch
 
 ## Build
 ```
-docker build -t erenstlwt/opencv_reader:gpu_h265 opencv/.
-docker build -t erenstlwt/opencv_reader:gpu_h264 --build-arg CODEC="h264"  opencv/.
+docker build -t ernestlwt/opencv_reader:gpu_h265 opencv/.
+docker build -t ernestlwt/opencv_reader:gpu_h264 --build-arg CODEC="h264"  opencv/.
 
-docker build -t erenstlwt/opencv_reader:cpu -f opencv/Dockerfile.cpu opencv/.
+docker build -t ernestlwt/opencv_reader:cpu -f opencv/Dockerfile.cpu opencv/.
 
 ```
 
@@ -25,7 +25,7 @@ docker run --gpus all -it --net host \
     --device=/dev/dxg -e DISPLAY=$DISPLAY \
     -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
     -e PULSE_SERVER=$PULSE_SERVER \
-    erenstlwt/opencv_reader:gpu_h265 bash
+    ernestlwt/opencv_reader:gpu_h265 bash
 
 # cpu
 docker run -it --net host \
@@ -36,7 +36,7 @@ docker run -it --net host \
     --device=/dev/dxg -e DISPLAY=$DISPLAY \
     -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
     -e PULSE_SERVER=$PULSE_SERVER \
-    erenstlwt/opencv_reader:cpu bash
+    ernestlwt/opencv_reader:cpu bash
 
 # for cpu only
 pip install opencv-python
