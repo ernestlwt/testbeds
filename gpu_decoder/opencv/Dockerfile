@@ -100,4 +100,6 @@ WORKDIR $HOME
 RUN rm opencv.zip opencv_contrib.zip
 
 ENV NVIDIA_DRIVER_CAPABILITIES=all
-ENV OPENCV_FFMPEG_CAPTURE_OPTIONS="video_codec;hevc_cuvid"
+
+ARG CODEC="hevc"
+ENV OPENCV_FFMPEG_CAPTURE_OPTIONS="video_codec;${CODEC}_cuvid" 
