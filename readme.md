@@ -32,3 +32,6 @@ Extract frames from videos
 
 - [WSL tips](./wsl)
 Collection of tips when using WSL
+
+- [GPU Decoder](./gpu_decoder)
+Decoding and reading video frames with GPU
