@@ -9,15 +9,15 @@ from VideoManager import VideoManager
 from confluent_kafka import Producer, Consumer
 from confluent_kafka.admin import AdminClient, NewTopic, KafkaError
 
-CAMERA_URLS = [
-    "rtsp://localhost:8554/mystream1",
-    "rtsp://localhost:8554/mystream2",
-    "rtsp://localhost:8554/mystream3",
-    "rtsp://localhost:8554/mystream4",
-    "rtsp://localhost:8554/mystream5",
+CAMERAS = [
+    { "camera_name": "cam1", "camera_url": "rtsp://localhost:8554/mystream1" },
+    { "camera_name": "cam2", "camera_url": "rtsp://localhost:8554/mystream2" },
+    { "camera_name": "cam3", "camera_url": "rtsp://localhost:8554/mystream3" },
+    { "camera_name": "cam4", "camera_url": "rtsp://localhost:8554/mystream4" },
+    { "camera_name": "cam5", "camera_url": "rtsp://localhost:8554/mystream5" }
 ]
 
-FRAMES = [None] * len(CAMERA_URLS)
+FRAMES = [None] * len(CAMERAS)
 
 KAFKA_SERVER="localhost:19092"
 KAFKA_MONITOR_TOPIC="kafka_monitoring"
@@ -90,7 +90,7 @@ def stack_frames(frames, num_horizontal, frame_size=(120,90)):
                 frame = np.zeros((frame_size[1], frame_size[0], 3), dtype = "uint8")
             else:
                 frame = cv2.resize(frames[frame_counter], frame_size)
-            draw_text(frame, CAMERA_URLS[frame_counter], pos=(10,10))
+            draw_text(frame, CAMERAS[frame_counter]["camera_name"], pos=(10,10))
 
             if row_frame is None:
                 row_frame = frame
@@ -121,7 +121,7 @@ def store_frame_in_redis(frame):
 
 video_cap_list = []
 
-vid_manager = VideoManager(CAMERA_URLS, videoFile=False)
+vid_manager = VideoManager(CAMERAS, videoFile=False)
 vid_manager.start()
 
 while True:

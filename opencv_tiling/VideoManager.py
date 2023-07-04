@@ -15,8 +15,8 @@ class VideoManager:
 		self.videos = []
 
 		for cam in cams:
-			stream = VideoStream(cam.split("/")[-1], cam, queueSize=queueSize, writeDir=writeDir, reconnectThreshold=reconnectThreshold, videoFile=videoFile)
-			self.videos.append({'camName':cam.split("/")[-1], 'stream':stream, 'info':{}, 'blank':[]})
+			stream = VideoStream(cam["camera_name"], cam["camera_url"], queueSize=queueSize, writeDir=writeDir, reconnectThreshold=reconnectThreshold, videoFile=videoFile)
+			self.videos.append({'camName':cam["camera_name"], 'stream':stream, 'info':{}, 'blank':[]})
 
 	# def _resize(self, frame):
 	# 	height, width = frame.shape[:2]
