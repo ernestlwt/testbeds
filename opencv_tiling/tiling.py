@@ -55,6 +55,23 @@ for topic, f in fs.items():
         else:
             print("Failed to create topic {}: {}".format(topic, e))
 
+def draw_text(
+        img, text,
+        font=cv2.FONT_HERSHEY_PLAIN,
+        pos=(0, 0),
+        font_scale=1,
+        font_thickness=1,
+        text_color=(0, 255, 0),
+        text_color_bg=(0, 0, 0)
+    ):
+
+    x, y = pos
+    text_size, _ = cv2.getTextSize(text, font, font_scale, font_thickness)
+    text_w, text_h = text_size
+    cv2.rectangle(img, pos, (x + text_w, y + text_h), text_color_bg, -1)
+    cv2.putText(img, text, (x, y + text_h + font_scale - 1), font, font_scale, text_color, font_thickness)
+
+    return text_size
 
 def stack_frames(frames, num_horizontal, frame_size=(120,90)):
     total_frames = len(frames)
@@ -73,6 +90,8 @@ def stack_frames(frames, num_horizontal, frame_size=(120,90)):
                 frame = np.zeros((frame_size[1], frame_size[0], 3), dtype = "uint8")
             else:
                 frame = cv2.resize(frames[frame_counter], frame_size)
+            draw_text(frame, CAMERA_URLS[frame_counter], pos=(10,10))
+
             if row_frame is None:
                 row_frame = frame
             else:
