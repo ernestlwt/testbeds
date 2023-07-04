@@ -2,7 +2,7 @@ import cv2
 import redis
 import json
 import numpy as np
-from confluent_kafka import Consumer, OFFSET_BEGINNING
+from confluent_kafka import Consumer, OFFSET_BEGINNING, OFFSET_END
 
 REDIS_HOST="localhost"
 REDIS_PORT="6379"
@@ -13,7 +13,8 @@ KAFKA_MONITOR_TOPIC="kafka_monitoring"
 
 kafka_consumer = Consumer({
     "bootstrap.servers": KAFKA_SERVER,
-    "group.id": "hi"
+    "group.id": "hi",
+    "auto.offset.reset": "latest"
 })
 
 redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=False)
@@ -32,7 +33,7 @@ def process_message(msg, redis_client):
 def reset_offset(consumer, partitions, reset):
     if reset:
         for p in partitions:
-            p.offset = OFFSET_BEGINNING
+            p.offset = OFFSET_END
         consumer.assign(partitions)
 
 kafka_consumer.subscribe([KAFKA_MONITOR_TOPIC], on_assign=lambda c, p: reset_offset(c, p, True))
