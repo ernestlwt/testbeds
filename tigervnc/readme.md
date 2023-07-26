@@ -52,3 +52,4 @@
 
 ## Notes
 1. Go to the host and close any existing google chrome. Because google chrome will run on the same display if there is any existing instances. So we make sure all are closed, then we are able to use it on the remote desktop display
+1. You will need an existing open ssh session. So if you cannot connect via Remmina, open a new terminal, ssh into the server and leave the terminal open, then try Remmina again
