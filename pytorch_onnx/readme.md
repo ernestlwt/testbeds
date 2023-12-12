@@ -30,18 +30,25 @@ python 2_benchmarking.py
 ### Sample Results
 ```
 ********** PYTORCH BENCHMARK **********
-Time taken for bs 8: 1.700500726699829
-Time taken for bs 16: 1.727259635925293
-Time taken for bs 32: 2.6443049907684326
-Time taken for bs 64: 106.64503884315491
+Time taken for bs 1: 1.735076904296875
+Time taken for bs 4: 1.723475456237793
+Time taken for bs 8: 1.7585182189941406
+Time taken for bs 16: 1.7889375686645508
+Time taken for bs 24: 2.145313024520874
+Time taken for bs 32: 2.628380060195923
+Time taken for bs 40: 11.467475175857544
 
 ********** ONNX BENCHMARK **********
-Time taken for bs 8: 0.8180742263793945
-Time taken for bs 16: 1.3896229267120361
-Time taken for bs 32: 2.5268664360046387
-Time taken for bs 64: 4.882249593734741
-Time taken for bs 128: 9.783576726913452
-Time taken for bs 256: 19.469582557678223
+Time taken for bs 1: 0.5265777111053467
+Time taken for bs 4: 0.6996495723724365
+Time taken for bs 8: 0.9364244937896729
+Time taken for bs 16: 1.4502336978912354
+Time taken for bs 24: 2.013993501663208
+Time taken for bs 32: 2.5413014888763428
+Time taken for bs 40: 3.0846469402313232
+Time taken for bs 64: 4.815320253372192
+Time taken for bs 128: 9.49012565612793
+Time taken for bs 256: 19.187354564666748
 ```
 
 ### Insights

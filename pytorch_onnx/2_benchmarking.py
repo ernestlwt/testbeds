@@ -65,7 +65,7 @@ def run_onnx_benchmark(batchsizes=[1], warmup_iter=5, benchmark_iter=100):
         print("Time taken for bs {}: {}".format(bs, end_t - start_t))
 
 
-BATCHSIZES = [8, 16, 32, 64, 128, 256]
+BATCHSIZES = [1, 4, 8, 16, 24, 32, 40, 64, 128, 256]
 NUM_INTERATIONS = 100
 
 # run_python_benchmark(BATCHSIZES, benchmark_iter=NUM_INTERATIONS)
