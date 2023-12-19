@@ -14,7 +14,9 @@ model.load_state_dict(torch.load("./efficientnet_b1-c27df63c.pth"))
 model.eval().to(device)
 
 batch_size = 1 # does not matter since we will be making this dynamic during conversion
-x = torch.randn(batch_size, 3, 224, 224, requires_grad=True).to(device)
+w = 224
+h = 224
+x = torch.randn(batch_size, 3, h, w, requires_grad=True).to(device)
 torch_out = model(x)
 
 torch.onnx.export(
