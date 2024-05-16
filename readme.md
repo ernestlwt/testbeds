@@ -44,3 +44,6 @@ Free remote decktop on ubuntu
 
 - [Pytorch to Onnx](./pytorch_onnx/)
 Testing using onnx in python vs pytorch
+
+- [Embeddings Visualization](./embeddings_visualization/)
+Visualize image embeddings in 2d/3d space with tensorboard
