@@ -29,28 +29,29 @@ transforms = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 catdog_dataset = ImageFolder("data/", transform=transforms)
-dataloader = DataLoader(catdog_dataset, batch_size=4, shuffle=True, num_workers=0)
+dataloader = DataLoader(catdog_dataset, batch_size=16, shuffle=True, num_workers=0)
 
 writer = SummaryWriter(comment='embedding_visualization')
 
 features_np = np.empty((0,1280))
 initial_size = 0
 max_str_length = 10  # Maximum length of each string
-labels_np = np.empty(initial_size, dtype=f'<U{max_str_length}')
+image_labels_idx = []
 with torch.no_grad():
     for inputs, labels in tqdm(dataloader, total=len(dataloader)):
         inputs = inputs.to(device)
         features = feature_extractor(inputs)
         flatten_fts = features["flatten"].squeeze()
         features_np = np.append(features_np, flatten_fts.detach().cpu().numpy(), axis=0)
-        labels_np = np.append(labels_np, labels, axis=0)
+        image_labels_idx.extend(labels)
 
 # sanity check
 print(features_np.shape)
-print(labels_np.shape)
+print(len(image_labels_idx))
+image_labels = [catdog_dataset.classes[x] for x in image_labels_idx]
 
 writer.add_embedding(
     features_np,
-    metadata=labels_np
+    metadata=image_labels
 )
 writer.close()
