@@ -1,6 +1,6 @@
 import torch
 import torchvision.transforms as transforms
-from torchvision.models import efficientnet_b1
+from torchvision.models import mobilenet_v3_large
 
 import numpy as np
 import time
@@ -14,8 +14,8 @@ with open("imagenet_classes.txt", "r") as f:
 device = torch.device("cuda")
 
 def run_python_benchmark(batchsizes=[1], warmup_iter=5, benchmark_iter=100):
-    model = efficientnet_b1()
-    model.load_state_dict(torch.load("./efficientnet_b1-c27df63c.pth"))
+    model = mobilenet_v3_large(num_classes=4)
+    model.load_state_dict(torch.load("./model.pt"))
     model.eval().to(device)
 
 
@@ -23,12 +23,12 @@ def run_python_benchmark(batchsizes=[1], warmup_iter=5, benchmark_iter=100):
 
     for bs in batchsizes:
         # warmup
-        warmup_x = torch.randn(bs, 3, 224, 224, requires_grad=True).to(device)
+        warmup_x = torch.randn(bs, 3, 224, 224).to(device)
         for i in range(warmup_iter):
             torch_out = model(warmup_x)
         torch.cuda.synchronize() # wait for warmup to finish
 
-        x = torch.randn(bs, 3, 224, 224, requires_grad=True).to(device)
+        x = torch.randn(bs, 3, 224, 224).to(device)
         torch.cuda.synchronize()
         start_t = time.time()
         for i in range(benchmark_iter):

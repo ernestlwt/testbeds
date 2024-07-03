@@ -9,9 +9,9 @@ with open("imagenet_classes.txt", "r") as f:
 
 # Use CPU for converting model
 device = torch.device("cpu")
-model = mobilenet_v3_large(num_classes=4)
-# model.load_state_dict(torch.load("./efficientnet_b1-c27df63c.pth"))
-model.load_state_dict(torch.load("./20240621.pt"))
+model = mobilenet_v3_large()
+# model = mobilenet_v3_large(num_classes=4)
+model.load_state_dict(torch.load("./model.pt"))
 model.eval().to(device)
 
 batch_size = 1 # does not matter since we will be making this dynamic during conversion
