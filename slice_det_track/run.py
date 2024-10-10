@@ -4,11 +4,11 @@ import torch
 
 from sahi_processor.sahi_processor import SAHIProcessor
 from ultralytics import YOLO
-from boxmot import BYTETracker
+from boxmot import ByteTrack
 
 sahi = SAHIProcessor(sahi_slice_width=640, sahi_slice_height=640, sahi_postprocess_class_agnostic=False)
 model = YOLO('yolov8n.pt')
-tracker = BYTETracker()
+tracker = ByteTrack()
 
 cap = cv2.VideoCapture("data/people_walking.mp4")
 
