@@ -47,3 +47,6 @@ Testing using onnx in python vs pytorch
 
 - [Embeddings Visualization](./embeddings_visualization/)
 Visualize image embeddings in 2d/3d space with tensorboard
+
+- [Depth Estimation](./depth_estimation/)
+Yolo + DepthAnythingV3 to estimate distance of targets
